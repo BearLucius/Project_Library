@@ -4,6 +4,7 @@ package org.example.libraryEntity;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 
 import java.util.List;
@@ -11,8 +12,9 @@ import java.util.List;
 @Data
 @Getter
 @Setter
+
 public class LibraryAllBooks {
-    private List<BookEntity> data;
+    private List <BookEntity> data;
 
     public LibraryAllBooks() {
     }
