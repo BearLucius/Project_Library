@@ -11,6 +11,11 @@ public class PublisherEntity {
     private String namePublisher;
     private String cityPublisher;
 
+    @Override
+    public String toString() {
+        return namePublisher + " | Город издательства: " + cityPublisher;
+    }
+
     public PublisherEntity() {
     }
 }

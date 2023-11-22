@@ -13,6 +13,11 @@ public class AuthorEntity {
     private String surname;
     private String lastname;
 
+    @Override
+    public String toString() {
+        return name + surname+ lastname;
+    }
+
     public AuthorEntity() {
 
     }
