@@ -1,24 +1,26 @@
 //Импорт файлов с папки LibraryEntity;
 package org.example;
-import org.example.libraryEntity.AuthorEntity;
-import org.example.libraryEntity.BookEntity;
-import org.example.libraryEntity.LibraryAllBooks;
-import org.example.libraryEntity.PublisherEntity;
+import org.example.libraryEntity.*;
 //Импорт java инструментов для работы;
 import java.awt.*;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 //Основная программа;
 public class Main {
     public static void main(String[] args) throws URISyntaxException, IOException {
         //Название приложения (Или же данные которые появляются при запуске программы;
-        System.out.printf("           (|22.11.2023|)" + "\n       -=Крапивин Илья | ИС-3=-" + "\n     [Project Library] v0.1");
+        System.out.printf("           (|22.11.2023|)" + "\n       -=Крапивин Илья | ИС-3=-" + "\n       [Project Library] v0.1");
         // Делаем переменную а в которую мы будем что-то вписывать (А ИМЕННО ЦИФРЫ), и это что-то вписанное должно менять case;
         int a;
+
         Scanner scanner = new Scanner(System.in);
         LibraryAllBooks books = new LibraryAllBooks();
         //Само меню, точнее, её функционал;
@@ -59,10 +61,12 @@ public class Main {
                         List<BookEntity> temp = new ArrayList<>();
                         temp.add(book);
                         books.setData(temp);
-                        }
+                        System.out.printf("Книга успешно добавлена в библиотеку!\n");
+                    }
                     //Иначе добавляется просто книга, тоесть, просто сами данные пользователя в созданный массив;
                     else {
                         books.getData().add(book);
+                        System.out.printf("Книга успешно добавлена в библиотеку!\n");
                     }
                     break;
                 case 4: System.out.println("Заглушка");break;
@@ -90,10 +94,12 @@ public class Main {
                             ";;;;;;;;;;;;,;;;;;;;;;;|. .\\:/ . . . .|;;;;;;;;|");break;
 
                             case 7: System.out.println("До свидания, хорошего дня!");
+                    }
+
             }
-        }
         while (a!=7);
 
+        }
     }
-}
+
 
