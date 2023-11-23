@@ -16,7 +16,7 @@ public class BookEntity {
 
     @Override
     public String toString() {
-        return "Название книги: "+ tittle + " | Автор книги: " + authors + " | Издательство: " + publsihers;
+        return "Название книги: " + tittle + "|Автор книги: " + authors + "|Издательство: " + publsihers;
     }
 
     public BookEntity() {

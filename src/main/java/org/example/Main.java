@@ -1,17 +1,19 @@
 //Импорт файлов с папки LibraryEntity;
 package org.example;
+import com.google.gson.Gson;
 import org.example.libraryEntity.*;
 //Импорт java инструментов для работы;
 import java.awt.*;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+
 
 //Основная программа;
 public class Main {
@@ -20,9 +22,22 @@ public class Main {
         System.out.printf("           (|22.11.2023|)" + "\n       -=Крапивин Илья | ИС-3=-" + "\n       [Project Library] v0.1");
         // Делаем переменную а в которую мы будем что-то вписывать (А ИМЕННО ЦИФРЫ), и это что-то вписанное должно менять case;
         int a;
-
+        // Делаем Сканнер для того, чтобы пользователь мог что-то вводить.
         Scanner scanner = new Scanner(System.in);
+        // Делаем массив чтобы сюда что-то вписывалось;
         LibraryAllBooks books = new LibraryAllBooks();
+        // А это красавец Gson;
+        Gson gson = new Gson();
+        // Чтение файлов, для того, чтобы вписать/прочитать текстовой файл.
+        try
+        {
+            FileReader reader = new FileReader("./fileForJson.txt");
+        }
+
+        catch (IOException ex){
+            System.out.println(ex.getMessage());
+        }
+
         //Само меню, точнее, её функционал;
         do {
             Menu.mainMenu();
@@ -56,7 +71,7 @@ public class Main {
                     book.setPublsihers(String.valueOf(publisher));
                     System.out.printf("Введите НАЗВАНИЕ книги: ");
                     book.setTittle(scanner.nextLine());
-                    //Условие, если getData ровняется Null, то созадётся новый массив с данными, которые ввёл пользователь;
+                    //Условие, если getData ровняется Null, то создаётся новый массив с данными, которые ввёл пользователь;
                     if (books.getData()==null) {
                         List<BookEntity> temp = new ArrayList<>();
                         temp.add(book);
@@ -91,15 +106,22 @@ public class Main {
                             ";;;;;;;\\;;;;;;;;;;;',: : :|¯¯|. . .|;;;;;;;;;,';;|\n" +
                             ";;;;;;;;;',;;;;;;;;;;;\\. . |:::|. . .'',;;;;;;;;|;;/\n" +
                             ";;;;;;;;;;\\;;;;;;;;;;;\\. .|:::|. . . |;;;;;;;;|/\n" +
-                            ";;;;;;;;;;;;,;;;;;;;;;;|. .\\:/ . . . .|;;;;;;;;|");break;
-
-                            case 7: System.out.println("До свидания, хорошего дня!");
-                    }
-
+                            ";;;;;;;;;;;;,;;;;;;;;;;|. .\\:/ . . . .|;;;;;;;;|");
+                            break;
+                            case 7:  try{ File fileForJson = new File("./fileForJson.txt");
+                                if (!fileForJson.exists())
+                                    fileForJson.createNewFile();
+                                FileWriter fw;
+                                fw = new FileWriter(fileForJson);
+                                fw.write(gson.toJson(books));
+                                fw.close();
+                                System.out.println("Запись завершена.");
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            };break;
+                            case 8: System.out.println("До свидания, хорошего дня!");
             }
-        while (a!=7);
-
+            }
+        while (a!=8);
         }
     }
-
-
