@@ -15,7 +15,7 @@ public class AuthorEntity {
 
     @Override
     public String toString() {
-        return name + surname+ lastname;
+        return name + " " + surname + " " + lastname;
     }
 
     public AuthorEntity() {
