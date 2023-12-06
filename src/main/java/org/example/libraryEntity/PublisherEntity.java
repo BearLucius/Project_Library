@@ -13,7 +13,7 @@ public class PublisherEntity {
 
     @Override
     public String toString() {
-        return namePublisher + " | Город издательства: " + cityPublisher;
+        return namePublisher + "\n|Город издательства: " + cityPublisher;
     }
 
     public PublisherEntity() {
