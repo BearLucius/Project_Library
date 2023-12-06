@@ -3,10 +3,13 @@ package org.example;
 import com.google.gson.Gson;
 import org.example.libraryEntity.*;
 //Импорт java инструментов для работы;
+import java.awt.*;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
@@ -15,7 +18,7 @@ import java.util.Scanner;
 
 //Основная программа;
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws URISyntaxException, IOException {
         //Название приложения (Или же данные которые появляются при запуске программы;
         System.out.printf("           (|06.12.2023|)" + "\n       -=Крапивин Илья | ИС-3=-" + "\n       [Project Library] v0.1");
         // Делаем переменную а в которую мы будем что-то вписывать (А ИМЕННО ЦИФРЫ), и это что-то вписанное должно менять case;
@@ -177,7 +180,8 @@ public class Main {
                 } catch (IOException e) {
                     e.printStackTrace();
                 };break;
-                case 6: System.out.println("До свидания, хорошего времени суток!");
+                case 6: Desktop.getDesktop().browse(new URI("https://www.youtube.com/watch?v=dQw4w9WgXcQ")); break;
+                case 7: System.out.println("До свидания, хорошего времени суток!");
                 default: System.out.println("Введите цифру меньше или равной 6!");   }
         }
         while (a!=6);
