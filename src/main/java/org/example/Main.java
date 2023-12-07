@@ -182,8 +182,8 @@ public class Main {
                 };break;
                 case 6: Desktop.getDesktop().browse(new URI("https://www.youtube.com/watch?v=dQw4w9WgXcQ")); break;
                 case 7: System.out.println("До свидания, хорошего времени суток!");
-                default: System.out.println("Введите цифру меньше или равной 6!");   }
+                default: System.out.println("Введите цифру меньше или равной 7!");   }
         }
-        while (a!=6);
+        while (a!=7);
     }
 }
